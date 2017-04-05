@@ -3,6 +3,7 @@ import { NavController} from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
+import { LoginPage } from '../login/login';
 
 import {Entity} from '../../providers/entity';
 import {Url} from '../../providers/url';
@@ -34,7 +35,9 @@ export class RegistroPage {
   constructor(public navCtrl: NavController, public storage: Storage, public oEntity: Entity, public oUrl: Url,
                  private oAlerta: Alerta, private oLoad: Load, private vtxt: Validartxt) { 
 
-                }
+   
+    }
+     
      public registrar(){
        try{ 
 
@@ -85,35 +88,35 @@ export class RegistroPage {
                 if(this.validarTxt){       
                     this.oLoad.showLoading(); 
                     var data = JSON.stringify({
-                                                KEY: 'KEY_USUARIO_CREATE',
-                                                _nombre: this._txtNombre,
-                                                _apellido: this._txtApellido,
-                                                _direccion: this._txtDireccion,
-                                                _etapa: this._txtEtapa,
-                                                _telefono: this._txtMovil,
-                                                _correo: this._txtCorreo,
-                                                _user: this._txtUser,
-                                                _pass: this._txtPass
-                                              });
+                       KEY: 'KEY_USUARIO_CREATE',
+                       _nombre: this._txtNombre,
+                       _apellido: this._txtApellido,
+                       _direccion: this._txtDireccion,
+                       _etapa: this._txtEtapa,
+                       _telefono: this._txtMovil,
+                       _correo: this._txtCorreo,
+                       _user: this._txtUser,
+                       _pass: this._txtPass
+                     });
 
                     this.oEntity.get(data, this.oUrl.url_usuario, 0).finally(() => { 
                         this.oLoad.dismissLoading(); 
                     }).subscribe(data => {
                          if(data.success == 1){
                             this.storage.ready().then(() => {
-                                this.storage.set('go_user', JSON.stringify(
-                                                                                {
-                                                                                    usu_id: data.usu_id,
-                                                                                    full_name: data.full_name,
-                                                                                    usu_nombre: data.usu_nombre,
-                                                                                    usu_apellido: data.usu_apellido,
-                                                                                    usu_direccion: data.usu_direccion,
-                                                                                    usu_etapa: data.usu_etapa,
-                                                                                    usu_telefono: data.usu_telefono,
-                                                                                    usu_correo: data.usu_correo,
-                                                                                    usu_es_conductor: data.usu_es_conductor  
-                                                                                }
-                                                                            ));
+                               this.storage.set('go_user', JSON.stringify(
+                                {
+                                    usu_id: data.usu_id,
+                                    full_name: data.full_name,
+                                    usu_nombre: data.usu_nombre,
+                                    usu_apellido: data.usu_apellido,
+                                    usu_direccion: data.usu_direccion,
+                                    usu_etapa: data.usu_etapa,
+                                    usu_telefono: data.usu_telefono,
+                                    usu_correo: data.usu_correo,
+                                    usu_es_conductor: data.usu_es_conductor  
+                                 }
+                              ));
                             });                                    
                 
                         
