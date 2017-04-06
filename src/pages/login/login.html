@@ -45,7 +45,7 @@
 
       <img src="assets/imgs/xZ4nQvLCQNmPzZjkaO0O_logo-splash.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
-    <form id="login-form2" class="list">
+    <!--<form id="login-form2" class="list">-->
 
       <div class="spacer" style="width: 300px; height: 20px;">
       </div>
@@ -53,26 +53,26 @@
       <div class="my-input">
         <ion-icon color="vibrant" name="contact" role="img" class="icon icon-ios icon-ios-vibrant ion-ios-contact" aria-label="contact" ng-reflect-color="vibrant" ></ion-icon> 
         <ion-item class="user input" style="padding-left: 0;">
-          <ion-input placeholder="Usuario" type="text" clearInput></ion-input>
+          <ion-input placeholder="Usuario" type="text"  [(ngModel)]="user"></ion-input>
         </ion-item>         
       </div>
 
       <div class="my-input">
       <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
         <ion-item class="user input" style="padding-left: 0;">
-          <ion-input type="password" placeholder="Contraseña" ></ion-input>
+          <ion-input type="password" placeholder="Contraseña" [(ngModel)]="pass"></ion-input>
         </ion-item>        
       </div>
       
 
-      <button id="btn-login" class="btn btn-login" (click)="onClick()">Ingresar</button>
+      <button id="btn-login" class="btn btn-login" (click)="login();">Ingresar</button>
 
 
 
 
       <div id="login-button-bar1" class="button-bar">
-        <button id="login-button8" class="btn btn-group">Nuevo<br>usuario</button>
+        <button id="login-button8" class="btn btn-group" (click)="goToRegistro();">Nuevo<br>usuario</button>
         <button id="login-button9" class="btn btn-group btn-omega">¿Olvidaste tu contraseña?</button>
       </div>
-    </form>
+    <!--</form>-->
 </ion-content>

@@ -3,7 +3,7 @@ import { NavController} from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
-import { LoginPage } from '../login/login';
+//import { LoginPage } from '../login/login';
 
 import {Entity} from '../../providers/entity';
 import {Url} from '../../providers/url';
@@ -134,7 +134,9 @@ export class RegistroPage {
              this.oAlerta.showVolverIntentar();
           } 
     }
-
+  goBack() {
+       this.navCtrl.pop();
+    }
   
 
 }
