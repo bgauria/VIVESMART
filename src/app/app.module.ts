@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegistroPage } from '../pages/registro/registro';
 import { TabPage } from '../pages/tab/tab';
+import { UsuariosubpreferenciaPage } from '../pages/usuariosubpreferencia/usuariosubpreferencia';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +17,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     LoginPage,
     RegistroPage,
-    TabPage
+    TabPage,
+    UsuariosubpreferenciaPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -28,7 +30,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     LoginPage,
     RegistroPage,
-    TabPage
+    TabPage,
+    UsuariosubpreferenciaPage
   ],
   providers: [
     StatusBar,

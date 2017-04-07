@@ -24612,3 +24612,55 @@ page-login .my-input .user {
 page-login .my-input .item-md.item-block .item-inner {
   border-bottom: 0 !important;
 }
+
+page-registro {
+  font-family: font129281;
+}
+
+page-registro .text-input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+}
+
+page-registro .text-input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+
+page-registro .text-input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: white;
+}
+
+page-registro .text-input:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
+}
+
+page-registro .list-md .item-block .item-inner, page-registro .list-md .item-input:last-child {
+  border-bottom: 0 !important;
+}
+
+page-registro h1 {
+  font-size: 45px;
+  font-weight: 400;
+}
+
+page-registro .my-input {
+  margin-bottom: 20px;
+}
+
+page-registro .btn-back {
+  color: white;
+  width: 32%;
+}
+
+page-registro .btn-next {
+  width: 65%;
+  display: inline-block;
+  float: right;
+}
+
+page-registro .btn {
+  font-size: 23px;
+}

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { HomePage } from '../home/home';
+//import { HomePage } from '../home/home';
+
+import { UsuariosubpreferenciaPage } from '../usuariosubpreferencia/usuariosubpreferencia';
 
 import {Alerta} from '../../providers/alerta';
 import {Load} from '../../providers/load';
-
 import {Entity} from '../../providers/entity';
 import {Url} from '../../providers/url';
 
@@ -35,7 +36,7 @@ export class LoginPage {
        /* if(navigator.connection.type == Connection.NONE) {
             this.oAlerta.showSinInternet();
         }else{ */
-            if(this.user =='' && this.pass ==''){
+            if(this.user =='' || this.pass ==''){
                 this.oAlerta.show1('Faltan campos por llenar!');	
             }else{
                 this.oLoad.showLoading(); 
@@ -48,27 +49,23 @@ export class LoginPage {
                 this.oEntity.get(data, this.oUrl.url_usuario, 0).finally(() => { 
                     this.oLoad.dismissLoading(); 
                 }).subscribe(data => {
-                    // console.log('--> ' + JSON.stringify(data));
+                     console.log('--> ' + JSON.stringify(data));
                      //console.log('::::>' + data.usuario[0].usu_id);
                     if(data.success == 1){
-                        this.storage.ready().then(() => {
-                           this.storage.set('go_user', JSON.stringify(
+                       /* this.storage.ready().then(() => {
+                           this.storage.set('vs_user', JSON.stringify(
                                                                             {
                                                                                 usu_id: data.usuario[0].usu_id,
                                                                                 full_name: data.usuario[0].full_name,
                                                                                 usu_nombre: data.usuario[0].usu_nombre,
                                                                                 usu_apellido: data.usuario[0].usu_apellido,
-                                                                                usu_direccion: data.usuario[0].usu_direccion,
-                                                                                usu_etapa: data.usuario[0].usu_etapa,
-                                                                                usu_telefono: data.usuario[0].usu_telefono,
-                                                                                usu_correo: data.usuario[0].usu_correo,
-                                                                                usu_es_conductor: data.usuario[0].usu_es_conductor  
+                                                                                usu_cedula: data.usuario[0].usu_cedula,
+                                                                                usu_correo: data.usuario[0].usu_mail
                                                                             }
                                                                         ));
-                        });                                    
+                        }); */                                   
                
-                    
-                        this.navCtrl.setRoot(HomePage);
+                        this.navCtrl.setRoot(UsuariosubpreferenciaPage);
                     } else {
                         this.oAlerta.show1("Usuario o Contraseña incorrectos!");
                     }   
@@ -84,5 +81,12 @@ export class LoginPage {
     }
      goToRegistro(){
       this.navCtrl.push(RegistroPage,  { });
+  }
+  showRecordarPass(){
+        this.storage.ready().then(() => {
+      
+        this.storage.remove('vs_user');
+
+    });
   }
 }
