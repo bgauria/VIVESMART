@@ -11,12 +11,22 @@ import { NavController, NavParams } from 'ionic-angular';
   selector: 'page-usuariosubpreferencia',
   templateUrl: 'usuariosubpreferencia.html'
 })
+
 export class UsuariosubpreferenciaPage {
+  items = [
+    'Pokémon Yellow',
+    'Super Metroid',
+    
+  ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UsuariosubpreferenciaPage');
+  itemSelected(item: string) {
+    console.log("Selected Item", item);
   }
 
+   constructor(public navCtrl: NavController, public navParams: NavParams) {}
+
+  	ionViewDidLoad() {
+    	console.log('ionViewDidLoad UsuariosubpreferenciaPage');
+  }
 }
+
