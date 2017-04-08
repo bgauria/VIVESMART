@@ -52,7 +52,7 @@ export class LoginPage {
                      console.log('--> ' + JSON.stringify(data));
                      //console.log('::::>' + data.usuario[0].usu_id);
                     if(data.success == 1){
-                       /* this.storage.ready().then(() => {
+                        this.storage.ready().then(() => {
                            this.storage.set('vs_user', JSON.stringify(
                                                                             {
                                                                                 usu_id: data.usuario[0].usu_id,
@@ -63,7 +63,7 @@ export class LoginPage {
                                                                                 usu_correo: data.usuario[0].usu_mail
                                                                             }
                                                                         ));
-                        }); */                                   
+                        });                              
                
                         this.navCtrl.setRoot(UsuariosubpreferenciaPage);
                     } else {

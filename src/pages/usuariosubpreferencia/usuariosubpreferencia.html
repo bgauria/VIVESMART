@@ -1,6 +1,5 @@
 <!--
   Generated template for the Usuariosubpreferencia page.
-
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -16,35 +15,21 @@
 
 
 <ion-content padding="false" style="background: url(assets/imgs/MzC4faYeQr2AnaRD3qbY_fondo.jpg) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" class="contenido">
-	<div class="lista">
-		<ion-item>
-		  <ion-label>
-		  	<h2>Preferencia 1</h2>
-		  </ion-label>
-		  <ion-select multiple="true">
-		    <ion-option>Bacon</ion-option>
-		    <ion-option>Black Olives</ion-option>
-		    <ion-option>Extra Cheese</ion-option>
-		    <ion-option>Mushrooms</ion-option>
-		    <ion-option>Pepperoni</ion-option>
-		    <ion-option>Sausage</ion-option>
-		  </ion-select>
+
+
+  <div *ngIf="ifReintentar" padding>
+         <ion-fab center middle>
+            <button ion-fab color="color_indigo_500" (click)="getRecargar();"><ion-icon name="refresh"></ion-icon></button>
+         </ion-fab>
+  </div>
+
+	 <ion-item-group *ngFor="let usp of _lista_usu_sub_preferencia">
+    <ion-item-divider color="light">{{usp.titulo}}</ion-item-divider>
+    <ion-item *ngFor="let sp of usp.valores">
+			<ion-label>{{sp.sub_descripcion}} </ion-label>
+			<ion-checkbox (click)="selectedSupPreferencia(sp);" color="secondary" checked="{{sp.bandera}}"></ion-checkbox>
 		</ion-item>
-		<ion-item>
-		  <ion-label>
-		  	<h2>Preferencia 2</h2>
-		  </ion-label>
-		  <ion-select multiple="true">
-		    <ion-option>Bacon</ion-option>
-		    <ion-option>Black Olives</ion-option>
-		    <ion-option>Extra Cheese</ion-option>
-		    <ion-option>Mushrooms</ion-option>
-		    <ion-option>Pepperoni</ion-option>
-		    <ion-option>Sausage</ion-option>
-		  </ion-select>
-		</ion-item>
+  </ion-item-group>
 
-	</div>	
-
-
+<button ion-button full color="danger" (click)="getGuardar();">Guardar</button>
 </ion-content>
