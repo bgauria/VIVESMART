@@ -4,8 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginPage } from '../pages/login/login';
-//import { TabPage } from '../pages/tab/tab';
-import { UsuariosubpreferenciaPage } from '../pages/usuariosubpreferencia/usuariosubpreferencia';
+import { TabPage } from '../pages/tab/tab';
+//import { UsuariosubpreferenciaPage } from '../pages/usuariosubpreferencia/usuariosubpreferencia';
 
 
 import { Storage } from '@ionic/storage';
@@ -28,7 +28,9 @@ export class MyApp {
           if(typeof val === 'undefined' || val === null){
             this.rootPage =LoginPage;
           }else{
-            this.rootPage = UsuariosubpreferenciaPage;
+            this.rootPage = TabPage;
+            //this.rootPage = UsuariosubpreferenciaPage;
+            
           }
       });
     });

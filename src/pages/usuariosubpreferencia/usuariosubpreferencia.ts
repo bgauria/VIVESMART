@@ -151,7 +151,7 @@ export class UsuariosubpreferenciaPage {
                 this.oAlerta.showSinInternet();
                 this.ifReintentar= true;  
             }else{*/
-               if (this.sp_seleccionados != '' || this.sp_deseleccionados != ''){
+             //  if (this.sp_seleccionados != '' || this.sp_deseleccionados != ''){
                 this.storage.ready().then(() => {
                     this.storage.get('vs_user').then((val) => {
                       this.su = JSON.parse(val);
@@ -177,7 +177,7 @@ export class UsuariosubpreferenciaPage {
                       });
                   });
                 });
-               }
+              // }
             //}
       }catch(err) {
         this.oAlerta.showVolverIntentar();

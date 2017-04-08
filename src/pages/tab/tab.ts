@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { LogrosPage } from '../logros/logros';
+import { PerfilPage } from '../perfil/perfil';
+import { PromosPage } from '../promos/promos';
+import { TipsPage } from '../tips/tips';
 
 /*
   Generated class for the Tab page.
@@ -14,6 +18,10 @@ import { HomePage } from '../home/home';
 })
 export class TabPage {
   tab1 = HomePage;
+  tab2 = PerfilPage;
+  tab3 = LogrosPage;
+  tab4 = PromosPage;
+  tab5 = TipsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
