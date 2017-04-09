@@ -16,7 +16,7 @@ page-home {
 	.contenido{
 		.scroll-content{
 			padding: 16px 0 !important ;
-			background-color: rgba(244, 244, 244, 0.8);
+			background-color: rgba(244, 244, 244, 0.3);
 			margin: auto 15px;
 			.card-content{
 				padding: 0;
@@ -54,21 +54,21 @@ page-home {
 
 
 		}
-		.card-title{
-			margin-top: 0;
-    	padding-top: 0;
+		.card-title, .card-title-md{
+			margin: 0;
+    	padding: 8px 0 0 0;
     	
 		}	
 
 		h2{
-			font-size:25px ;
+			font-size:	16px ;
 			font-weight: 800;
 			padding-top: 0;
     	margin-top: 0;
 
 		}
 		p{
-			font-size: 15px;
+			font-size: 11px;
 		&:first-letter{
 			text-transform: capitalize;
 
