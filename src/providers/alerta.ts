@@ -8,7 +8,7 @@ export class Alerta {
     }
     show1(text) {
         let alert = this.alertCtrl.create({
-            title: 'Go',
+            title: 'ViveSmart',
             subTitle: text,
             buttons: ['OK']
         });

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController , AlertController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 //import { HomePage } from '../home/home';
 
@@ -27,7 +27,7 @@ export class LoginPage {
     public user= '';
     public pass= '';
     
-    constructor(public navCtrl: NavController, public storage: Storage,
+    constructor(public navCtrl: NavController, public storage: Storage, public alertCtrl: AlertController,
                  private oAlerta: Alerta, private oLoad: Load, public oEntity: Entity, public oUrl: Url) {   
     }
 
@@ -82,11 +82,66 @@ export class LoginPage {
      goToRegistro(){
       this.navCtrl.push(RegistroPage,  { });
   }
-  showRecordarPass(){
-        this.storage.ready().then(() => {
-      
-        this.storage.remove('vs_user');
 
-    });
-  }
+
+      showRecordarPass() {  
+        let confirm = this.alertCtrl.create({
+            title: 'Go',
+            message: 'Escribe tu mail para recuperar tu user y contraseña',
+            inputs: [
+                {
+                name: 'title',
+                placeholder: 'Mail',
+                type: 'mail'
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    handler: () => {}
+                },
+                {
+                    text: 'Enviar',
+                    handler: data => { this.recuperarPass(data.title); }
+                }
+            ]
+        });
+        confirm.present();
+     
+    }
+
+     public recuperarPass(mail){
+        try{ 
+       /* if(navigator.connection.type == Connection.NONE) {
+            this.oAlerta.showSinInternet();
+        }else{ */
+            if(mail ==''){
+                this.oAlerta.show1('Faltan el mail!');	
+            }else{
+                this.oLoad.showLoading(); 
+                var data = JSON.stringify({
+                                            KEY: 'KEY_RECUPERAR_PASS',
+                                            _mail: mail
+                                         });
+
+                this.oEntity.get(data, this.oUrl.url_usuario, 0).finally(() => { 
+                    this.oLoad.dismissLoading(); 
+                }).subscribe(data => {
+                     console.log('--> ' + JSON.stringify(data));
+                     //console.log('::::>' + data.usuario[0].usu_id);
+                    if(data.success == 1){
+                        this.oAlerta.show1(data.msg);
+                    } else {
+                        this.oAlerta.show1(data.msg);
+                    }   
+                }, error => {
+                    this.oAlerta.show2('ERROR' ,error , 'OK');
+
+                });
+           // }
+        }
+        }catch(err) {
+            this.oAlerta.show1('ERROR' + err);
+        } 
+    }
 }
